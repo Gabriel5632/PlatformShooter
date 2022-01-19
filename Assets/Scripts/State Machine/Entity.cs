@@ -16,6 +16,7 @@ public class Entity : MonoBehaviour
     public AnimationToStatemachine atsm { get; private set; }
     public Vector2 originalPosition { get; private set; }
     public Material originalMaterial { get; private set; }
+    public QuietoState quietoState {get; private set;}
 
     //Where the actual health of the enemy will be stored
     public int health { get; private set; }
@@ -40,6 +41,8 @@ public class Entity : MonoBehaviour
         health = entityData.maxHealth;
 
         stateMachine = new FiniteStateMachine();
+        quietoState = new QuietoState(this, this.atsm, );
+
     }
 
     public virtual void Update()
